@@ -1,0 +1,29 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  api:
+    build: .
+    volumes:
+        - ./src:/usr/src/app/src
+        - ./nodemon.json:/usr/src/app/nodemon.json
+    ports:
+      - "3000:3000"
+    #   - "9229:9229"
+    links:
+      - db
+    depends_on:
+      - "db"
+    environment:
+        AWS_ACCESS_KEY_ID: '' 
+        AWS_SECRET_ACCESS_KEY: ''
+    # command: # if you want to debugger with breakpoints and whatnot
+    #   - node
+    #   - "--inspect-brk=0.0.0.0"
+    #   - "." 
+  db:
+    ports:
+      - "27017:27017"
+    image: mongo
+    volumes:
+        - ./backup_proddb:/data/db
+volumes:
+  mongodbdata: {}
