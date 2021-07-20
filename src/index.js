@@ -8,19 +8,19 @@ const accounts = require('./routes/auth');
 // --- --- --- --- --- --- --- --- --- 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 app.use(morgan('combined'))
 app.use(express.json());
 
 connectToDb()
 
-app.get('/', (req, res) => {
+app.get('/auth-api', (req, res) => {
   res.send('OK')
 })
 
 // app.use('/tanks', authenticateToken, tanks)
-app.use('/', accounts)
+app.use('/auth-api', accounts)
 
 app.use(function (err, req, res, next) {
   console.error(err.stack)

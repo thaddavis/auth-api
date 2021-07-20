@@ -18,5 +18,5 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 000
-CMD [ "npm", "run", "dev" ]
+EXPOSE 80
+CMD [ "npm", "run", "start" ]
