@@ -3,13 +3,18 @@ const morgan = require('morgan')
 const { connectToDb } = require('./db/connect')
 // const tanks = require('./routes/tanks');
 const accounts = require('./routes/auth');
+const cors = require('cors')
 
-
+var corsOptions = {
+  origin: 'http://localhost:3000',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 // --- --- --- --- --- --- --- --- --- 
 
 const app = express()
 const port = process.env.PORT
 
+app.use(cors(corsOptions))
 app.use(morgan('combined'))
 app.use(express.json());
 

@@ -8,11 +8,14 @@ const argon2 = require('argon2')
 
 module.exports = async function (req, res, next) {
     try {
+        console.log('___ ___ ___')
 
         const {
             email,
             password
         } = req.body
+
+        console.log('email', email, 'password', password)
 
         const result = await Account.findOne({ email })
         
