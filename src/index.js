@@ -6,6 +6,8 @@ const { connectToDb } = require('./db/connect')
 const accounts = require('./routes/auth')
 const cors = require('cors')
 
+const pkg = require('../package.json')
+
 var corsOptions = {
   origin: 'http://localhost:3000',
   credentials: true,
@@ -23,8 +25,14 @@ app.use(cookieParser())
 
 connectToDb()
 
+
+
 app.get('/auth-api', (req, res) => {
   res.send('OK')
+})
+
+app.get('/auth-api/version', (req, res) => {
+  res.send(pkg.version)
 })
 
 // app.use('/tanks', authenticateToken, tanks)
