@@ -8,14 +8,11 @@ const argon2 = require('argon2')
 
 module.exports = async function (req, res, next) {
     try {
-        console.log('___ ___ ___')
-
+        
         const {
             email,
             password
         } = req.body
-
-        console.log('email', email, 'password', password)
 
         const result = await Account.findOne({ email })
         
@@ -28,7 +25,12 @@ module.exports = async function (req, res, next) {
             if (await argon2.verify(passwordHash, password)) {
 
                 const token = generateAccessToken({ email })
-                res.status(200).json(token)
+                res.status(200).cookie('jwt', token, {
+                    sameSite: 'strict',
+                    path: '/',
+                    expires: new Date(new Date().getTime() + (1000 * 60 * 60 * 24 * 2) ),
+                    httpOnly: true,
+                }).send()
 
             } else res.status(401).send()
 

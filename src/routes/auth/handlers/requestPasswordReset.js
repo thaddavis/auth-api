@@ -23,7 +23,7 @@ module.exports = async function (req, res, next) {
             const UUID = uuid()
             result.resetPasswordToken = UUID
             await result.save()
-            const RESET_LINK = `https://cmdsoftware.io/resetPassword/${UUID}`
+            const RESET_LINK = `${process.env.FRONTEND_HOSTNAME}/resetPassword/${UUID}`
 
             // and send the email
 
@@ -31,7 +31,7 @@ module.exports = async function (req, res, next) {
                 Destination: {
                     CcAddresses: [],
                     ToAddresses: [
-                        'thadduval.lavud@gmail.com'
+                        email
                     ]
                 },
                 Source: 'CMDSoftware.io <admin@cmdsoftware.io>',

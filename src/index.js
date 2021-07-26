@@ -1,12 +1,14 @@
 const express = require('express')
 const morgan = require('morgan')
+const cookieParser = require('cookie-parser')
 const { connectToDb } = require('./db/connect')
-// const tanks = require('./routes/tanks');
-const accounts = require('./routes/auth');
+// const tanks = require('./routes/tanks')
+const accounts = require('./routes/auth')
 const cors = require('cors')
 
 var corsOptions = {
   origin: 'http://localhost:3000',
+  credentials: true,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 // --- --- --- --- --- --- --- --- --- 
@@ -16,7 +18,8 @@ const port = process.env.PORT
 
 app.use(cors(corsOptions))
 app.use(morgan('combined'))
-app.use(express.json());
+app.use(express.json())
+app.use(cookieParser())
 
 connectToDb()
 

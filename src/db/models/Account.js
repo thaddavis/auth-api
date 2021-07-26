@@ -9,7 +9,16 @@ const schema = mongoose.Schema({
         index: true
     },
     resetPasswordToken: String,
-    passwordHash: String 
+    passwordHash: String,
+    name: {
+        type: String,
+        required: true
+    },
+    emailVerified: {
+        type: Boolean,
+        required: true,
+        default: false
+    }
 })
 
 schema.plugin(uniqueValidator)

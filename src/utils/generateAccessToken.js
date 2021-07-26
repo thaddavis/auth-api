@@ -5,7 +5,7 @@ function generateAccessToken(username) {
         username,
         process.env.JWT_SECRET,
         {
-            expiresIn: '12 hours'
+            expiresIn: '2 days'
         }
     );
 }

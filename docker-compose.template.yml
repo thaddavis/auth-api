@@ -16,6 +16,7 @@ services:
         AWS_ACCESS_KEY_ID: '' 
         AWS_SECRET_ACCESS_KEY: ''
         PORT: 80
+        FRONTEND_HOSTNAME: 'https://localhost:3000'
     # command: # if you want to debugger with breakpoints and whatnot
     #   - node
     #   - "--inspect-brk=0.0.0.0"

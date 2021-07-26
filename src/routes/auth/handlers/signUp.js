@@ -5,6 +5,7 @@ module.exports = async function (req, res, next) {
     try {
         
         const {
+            name,
             email,
             password
         } = req.body
@@ -13,6 +14,7 @@ module.exports = async function (req, res, next) {
         const passwordHash = await argon2.hash(password)
 
         const newAccount = new Account({
+            name,
             email,
             passwordHash,
             resetPasswordToken: null
