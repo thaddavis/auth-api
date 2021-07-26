@@ -9,7 +9,7 @@ const cors = require('cors')
 const pkg = require('../package.json')
 
 var corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: process.env.FRONTEND_DOMAIN,
   credentials: true,
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }

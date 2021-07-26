@@ -1,12 +1,12 @@
 {
   "name": "auth-api",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "FRONTEND_DOMAIN=https://cmdsoftware.io node src/index.js",
+    "dev": "FRONTEND_DOMAIN=http://localhost:3000 nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
