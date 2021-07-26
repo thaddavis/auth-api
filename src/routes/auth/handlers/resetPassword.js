@@ -12,7 +12,6 @@ module.exports = async function (req, res, next) {
         } = req.body
 
         const result = await Account.findOne({
-            email,
             resetPasswordToken
         })
 
@@ -23,7 +22,6 @@ module.exports = async function (req, res, next) {
 
             const passwordHash = await argon2.hash(newPassword)
 
-            result.email = email
             result.passwordHash = passwordHash
             result.resetPasswordToken = null
 
