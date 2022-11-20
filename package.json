@@ -4,9 +4,10 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0",
+    "test": "jest",
+    "test-watch": "jest --watch --findRelatedTests __tests__/auth_flow_1__mock_password_reset.test.js",
     "start": "FRONTEND_DOMAIN=https://cmdsoftware.io node src/index.js",
-    "dev": "FRONTEND_DOMAIN=http://localhost:3000 nodemon src/index.js"
+    "dev": "FRONTEND_DOMAIN=http://localhost:3000 DB_HOST=localhost:27017 PORT=3001 JWT_SECRET=secret MOCK_PASSWORD_RESET=true MOCK_ACCOUNT_VERIFICATION=true MOCK_DATABASE=true nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,9 @@
   "dependencies": {
     "@aws-sdk/client-ses": "^3.22.0",
     "argon2": "^0.28.2",
+    "async": "^3.2.4",
+    "axios": "^1.1.3",
+    "axios-cookiejar-support": "^4.0.3",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
@@ -22,7 +26,15 @@
     "mongoose": "^5.13.3",
     "mongoose-unique-validator": "^2.0.3",
     "morgan": "^1.10.0",
+    "newman": "^5.3.2",
+    "newman-reporter-html": "^1.0.5",
+    "newman-reporter-htmlextra": "^1.22.11",
+    "newman-reporter-json-summary": "^1.0.14",
     "nodemon": "^2.0.12",
-    "uuidv4": "^6.2.11"
+    "tough-cookie": "^4.1.2",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
   }
 }

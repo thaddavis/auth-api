@@ -1,12 +1,10 @@
 # Tips
 
-- docker-compose up --build
+## Tip 1
 
-# Tips
+- docker-compose up --build
 
 You need your own creds for AWS in the docker-compose.yml:
 
 AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
-
-# Tips

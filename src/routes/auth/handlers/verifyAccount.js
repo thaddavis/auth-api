@@ -1,15 +1,17 @@
 const { Account } = require("../../../db/models/Account");
-const argon2 = require("argon2");
 
 module.exports = async function (req, res, next) {
   try {
-    let { email } = req.user;
+    let { email, verificationToken } = req.body;
 
     const result = await Account.findOne({
       email,
+      verificationToken,
     });
 
     if (result) {
+      result.verified = true;
+      result.verificationToken = null;
       await result.save();
 
       res.status(200).send();

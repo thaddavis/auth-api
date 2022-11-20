@@ -1,5 +1,7 @@
-const { generateAccessToken } = require('./generateAccessToken')
+const { generateAccessToken } = require("./generateAccessToken");
+const { sum } = require("./sum");
 
 module.exports = {
-    generateAccessToken
-}
+  sum,
+  generateAccessToken,
+};

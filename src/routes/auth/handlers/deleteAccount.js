@@ -1,28 +1,23 @@
-const { Account } = require('../../../db/models/Account')
+const { Account } = require("../../../db/models/Account");
 
 module.exports = async function (req, res, next) {
-    try {
+  try {
+    const { email } = req.user;
 
-        const emailToDelete = req.body && req.body.email
-        const { email } = req.user
+    if (email) {
+      const result = await Account.deleteOne({ email });
 
-        if (email === emailToDelete) {
-            
-            const result = await Account.deleteOne({ email })
+      const { n, ok, deletedCount } = result;
 
-            const {
-                n,
-                ok,
-                deletedCount
-            } = result
-        
-            if (n === 1 && ok === 1 && deletedCount === 1) {
-                res.status(200).send()
-            } else {
-                res.status(404).send()
-            }
-
-        } else { res.status(401).send() }
-
-    } catch(e) { next(e) }
-}
+      if (n === 1 && ok === 1 && deletedCount === 1) {
+        res.status(200).clearCookie("jwt").send();
+      } else {
+        res.status(404).clearCookie("jwt").send();
+      }
+    } else {
+      res.status(401).clearCookie("jwt").send();
+    }
+  } catch (e) {
+    next(e);
+  }
+};

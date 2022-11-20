@@ -11,7 +11,10 @@ const sesClient = new SESClient({ region: REGION });
 
 module.exports = async function (req, res, next) {
   try {
+    if (!process.env.MOCK_PASSWORD_RESET) res.status(401).send();
+
     const { email } = req.body;
+
     const result = await Account.findOne({ email });
 
     if (result) {
@@ -19,11 +22,12 @@ module.exports = async function (req, res, next) {
       const UUID = v4();
       result.resetPasswordToken = UUID;
       await result.save();
-      const RESET_LINK = `${process.env.FRONTEND_HOSTNAME}/resetPassword/${UUID}`;
-      // and send the email
-      const emailConfig = generateResetPasswordConfigSes(email, RESET_LINK);
-      await sesClient.send(new SendTemplatedEmailCommand(emailConfig));
-      res.status(200).send();
+      const RESET_LINK = `${process.env.FRONTEND_DOMAIN}/resetPassword/${UUID}`;
+
+      res.status(200).json({
+        resetToken: UUID,
+        resetLink: RESET_LINK,
+      });
     } else res.status(404).send();
   } catch (e) {
     next(e);
