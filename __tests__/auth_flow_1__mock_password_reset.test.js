@@ -11,6 +11,18 @@ describe("Auth flow 1 w/ mock password reset", () => {
   var verificationToken;
   var resetPasswordToken;
 
+  beforeAll(async () => {
+    var config = {
+      method: "delete",
+      url: `${API_HOST}/auth-api/accounts`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    await client(config);
+  });
+
   test("Sign Up", async () => {
     let data = JSON.stringify({
       email: "t@t.com",

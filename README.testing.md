@@ -9,3 +9,5 @@
 ## Kong Insomnia
 
 `https://github.com/Kong/insomnia`
+
+brew install inso
