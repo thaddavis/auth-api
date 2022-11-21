@@ -1,4 +1,4 @@
-# Reference project for how to test API with Postman and Jest
+# Reference project for how to test API's with Postman and Jest
 
 ## Additional Tips
 
