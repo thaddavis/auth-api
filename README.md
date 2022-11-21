@@ -1,6 +1,8 @@
-# Tips
+# Reference project for how to test API with Postman and Jest
 
-## Tip 1
+## Additional Tips
+
+### Tip 1
 
 - docker-compose up --build
 
