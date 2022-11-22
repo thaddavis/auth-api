@@ -16,18 +16,18 @@ const {
 
 const router = require("express").Router();
 
-router.route("/isAuthed").get(authenticateToken, isAuthed);
-router.route("/signin").post(signIn);
-router.route("/signup").post(signUp);
-router.route("/signOut").delete(authenticateToken, signOut);
-router.route("/requestPasswordReset").post(requestPasswordReset);
-router.route("/mockRequestPasswordReset").post(mockRequestPasswordReset);
+router.route("/is-authed").get(authenticateToken, isAuthed);
+router.route("/sign-in").post(signIn);
+router.route("/sign-up").post(signUp);
+router.route("/signo-out").delete(authenticateToken, signOut);
+router.route("/request-password-reset").post(requestPasswordReset);
+router.route("/mock-request-password-reset").post(mockRequestPasswordReset);
 router
-  .route("/mockReceiveVerificationToken")
+  .route("/mock-receive-verification-token")
   .post(mockReceiveVerificationToken);
-router.route("/verifyAccount").post(verifyAccount);
-router.route("/resetPassword").post(resetPassword);
-router.route("/deleteAccount").delete(authenticateToken, deleteAccount);
+router.route("/verify-account").post(verifyAccount);
+router.route("/reset-password").post(resetPassword);
+router.route("/delete-account").delete(authenticateToken, deleteAccount);
 router.route("/accounts").delete(clearAccounts);
 
 module.exports = router;
