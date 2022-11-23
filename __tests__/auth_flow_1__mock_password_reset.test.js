@@ -32,7 +32,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/signUp`,
+      url: `${API_HOST}/auth-api/sign-up`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -52,7 +52,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/signIn`,
+      url: `${API_HOST}/auth-api/sign-in`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -68,7 +68,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
   test("Check If Authenticated", async () => {
     let config = {
       method: "get",
-      url: `${API_HOST}/auth-api/isAuthed`,
+      url: `${API_HOST}/auth-api/is-authed`,
       validateStatus: false,
     };
 
@@ -84,7 +84,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/mockReceiveVerificationToken`,
+      url: `${API_HOST}/auth-api/mock-receive-verification-token`,
       validateStatus: false,
       headers: {
         "Content-Type": "application/json",
@@ -107,7 +107,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/verifyAccount`,
+      url: `${API_HOST}/auth-api/verify-account`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -127,7 +127,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/verifyAccount`,
+      url: `${API_HOST}/auth-api/verify-account`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -148,7 +148,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/signIn`,
+      url: `${API_HOST}/auth-api/sign-in`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -163,7 +163,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
   test("Check If Authenticated", async () => {
     let config = {
       method: "get",
-      url: `${API_HOST}/auth-api/isAuthed`,
+      url: `${API_HOST}/auth-api/is-authed`,
       validateStatus: false,
     };
 
@@ -175,7 +175,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
   test("Sign Out", async () => {
     let config = {
       method: "delete",
-      url: `${API_HOST}/auth-api/signOut`,
+      url: `${API_HOST}/auth-api/sign-out`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -194,7 +194,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/mockRequestPasswordReset`,
+      url: `${API_HOST}/auth-api/mock-request-password-reset`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -217,7 +217,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/resetPassword`,
+      url: `${API_HOST}/auth-api/reset-password`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -238,7 +238,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/resetPassword`,
+      url: `${API_HOST}/auth-api/reset-password`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -254,7 +254,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
   test("Sign Out Should Fail", async () => {
     let config = {
       method: "delete",
-      url: `${API_HOST}/auth-api/signOut`,
+      url: `${API_HOST}/auth-api/sign-out`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -274,7 +274,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/signIn`,
+      url: `${API_HOST}/auth-api/sign-in`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -290,7 +290,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
   test("Sign Out", async () => {
     let config = {
       method: "delete",
-      url: `${API_HOST}/auth-api/signOut`,
+      url: `${API_HOST}/auth-api/sign-out`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -305,7 +305,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
   test("Check If Authenticated Should Fail", async () => {
     let config = {
       method: "get",
-      url: `${API_HOST}/auth-api/isAuthed`,
+      url: `${API_HOST}/auth-api/is-authed`,
       validateStatus: false,
     };
 
@@ -322,7 +322,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
 
     let config = {
       method: "post",
-      url: `${API_HOST}/auth-api/signIn`,
+      url: `${API_HOST}/auth-api/sign-in`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -338,7 +338,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
   test("Delete Account", async () => {
     let config = {
       method: "delete",
-      url: `${API_HOST}/auth-api/deleteAccount`,
+      url: `${API_HOST}/auth-api/delete-account`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -353,7 +353,7 @@ describe("Auth flow 1 w/ mock password reset", () => {
   test("Check If Authenticated Should Fail", async () => {
     let config = {
       method: "get",
-      url: `${API_HOST}/auth-api/isAuthed`,
+      url: `${API_HOST}/auth-api/is-authed`,
       validateStatus: false,
     };
 
