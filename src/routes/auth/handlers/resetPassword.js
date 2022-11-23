@@ -6,6 +6,7 @@ module.exports = async function (req, res, next) {
     const { email, resetPasswordToken, newPassword } = req.body;
 
     const result = await Account.findOne({
+      email,
       resetPasswordToken,
     });
 
