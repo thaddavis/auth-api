@@ -4,7 +4,7 @@ function authenticateToken(req, res, next) {
   const jwtCookie = req.cookies["jwt"];
   const token = jwtCookie;
 
-  if (token == null) return res.sendStatus(500);
+  if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     console.log(err);

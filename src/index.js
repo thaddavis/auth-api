@@ -27,8 +27,8 @@ app.use(cookieParser());
 
 connectToDb();
 
-app.get("/auth-api", (req, res) => {
-  res.send("OK!");
+app.get("/healthcheck", (req, res) => {
+  res.status(200).send();
 });
 
 app.get("/auth-api/version", (req, res) => {
