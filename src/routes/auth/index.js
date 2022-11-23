@@ -19,7 +19,7 @@ const router = require("express").Router();
 router.route("/is-authed").get(authenticateToken, isAuthed);
 router.route("/sign-in").post(signIn);
 router.route("/sign-up").post(signUp);
-router.route("/signo-out").delete(authenticateToken, signOut);
+router.route("/sign-out").delete(authenticateToken, signOut);
 router.route("/request-password-reset").post(requestPasswordReset);
 router.route("/mock-request-password-reset").post(mockRequestPasswordReset);
 router

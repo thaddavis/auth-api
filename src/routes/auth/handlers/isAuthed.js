@@ -10,8 +10,6 @@ module.exports = async function (req, res, next) {
     });
 
     if (result) {
-      await result.save();
-
       res.status(200).send();
     } else {
       res.status(404).send();
